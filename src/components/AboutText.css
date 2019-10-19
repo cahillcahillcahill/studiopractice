@@ -1,0 +1,9 @@
+.about-container {
+    display: flex;
+    flex-direction: column;
+    padding-right: 15%;
+    padding-left: 15%;
+    justify-content: center;
+    align-items: center;
+    font-size: 16pt;
+  }

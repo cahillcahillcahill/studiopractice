@@ -1,0 +1,42 @@
+.logo-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 300px;
+  }
+  
+  .logo-img {
+    padding:10px 15px 5px 15px;
+    font-family: "Gothic A1", sans-serif;
+    font-style: italic;
+    color: rgb(19, 18, 18);
+    background-color: rgb(255, 255, 255);
+    border-radius: 1px;
+    font-size: 24pt;
+    -webkit-transition: 0.6s;
+    transition: 0.6s;
+  }
+  
+  .logo-img:hover {
+    cursor: pointer;
+    -webkit-transition: 0.6s;
+    transition: 0.6s;
+  }
+  
+  .logo-img:hover svg {
+    color: rgb(255, 255, 255);
+    background-color: rgb(19, 18, 18);
+    border-radius: 12px;
+    -webkit-transition: 0.6s;
+    transition: 0.6s;
+  }
+  
+  .logo-img svg {
+    border-radius: 12px;
+    -webkit-transition: 2s;
+    transition: 2s;
+    margin-left: 2px;
+  }  

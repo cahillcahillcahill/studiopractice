@@ -3,7 +3,7 @@ import ProductButton from "./ProductButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import "../App.css";
+import "./Product.css";
 
 class Product extends Component {
   constructor(props) {
@@ -32,12 +32,11 @@ class Product extends Component {
           </div>
           <div className="img-and-description">
             <img
-              height={470}
               title={this.props.product.name}
               src={`/products/${this.props.product.image}`}
               alt={""}
             />
-            <div>
+            <div className="description-price-button">
               <div className="product-modal-description">
                 {this.props.product.description}
               </div>

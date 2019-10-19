@@ -1,0 +1,111 @@
+.saved-carts {
+  float: right;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.saved-carts button {
+  padding: 5px;
+  cursor: pointer;
+  background-color: white;
+  color: rgb(19, 18, 18);
+  border: 1px solid rgb(19, 18, 18);
+  border-radius: 3px;
+  outline-color: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.saved-carts button:hover {
+  border: 1px solid rgb(245, 245, 245);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.saved-carts :hover {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.header-and-x {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+
+.delete-btn {
+  display: none;
+}
+
+.delete-btn button {
+  float: right;
+  cursor: pointer;
+  background-color: white;
+  color: rgb(19, 18, 18);
+  border: none;
+  border-radius: 3px;
+  outline-color: none;
+  padding: 0px 4px;
+}
+
+.saved-cart-header {
+  cursor: pointer;
+  height: 20px;
+}
+
+.saved-cart-date-total {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.saved-cart-total{
+  text-align: right;
+}
+
+.saved-cart {
+  display: grid;
+  grid-template-columns: 1fr;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border-radius: 6px;
+  padding: 3px;
+}
+
+.items-and-button {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 36px;
+}
+
+.saved-cart-item {
+  color: rgb(19, 18, 18);
+}
+
+.saved-cart:hover {
+  background-color: rgb(245, 245, 245);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.saved-cart:hover .saved-cart-x {
+  display: inline;
+}
+
+.saved-cart:hover .delete-btn {
+  display: block;
+}
+
+.saved-cart-header:hover {
+  color: rgb(245, 245, 245);
+}
+
+.saved-cart-close {
+  justify-self: flex-end;
+  height: 20px;
+  margin: -10px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.saved-cart-x {
+    margin-top: -5px;
+}

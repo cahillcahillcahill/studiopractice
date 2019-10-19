@@ -1,14 +1,16 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import "./Logo.css";
 
 export default function Logo(props) {
   return (
-    <div
-      className="logo-container"
-      onClick={() => console.log("clicked big")}
-    >
-      <LogoImg />
+    <div className="logo-container" onClick={() => console.log("clicked big")}>
+      <Link to="/">
+        {" "}
+        <LogoImg />
+      </Link>
     </div>
   );
 

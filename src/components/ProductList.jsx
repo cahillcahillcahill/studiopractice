@@ -1,7 +1,7 @@
 import React from "react";
 import Product from "./Product";
 import { connect } from "react-redux";
-import "../App.css";
+import "./ProductList.css";
 
 function ProductList(props) {
   return (

@@ -1,0 +1,12 @@
+.list-container {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: center;
+  }
+  
+  .product-list-item {
+    height: 500px;
+    width: 400px;
+    flex: none;
+  }

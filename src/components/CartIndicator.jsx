@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./CartIndicator.css";
 
 export default function CartIndicator(props) {
   const Total = () => {
@@ -18,6 +19,6 @@ export default function CartIndicator(props) {
       <div className="indicator-money">${Total()}</div>
     </Link>
   ) : (
-    ""
+    <div className="indicator-money"></div>
   );
 }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import CartButton from "./CartButton";
+import "./SavedCarts.css";
 
 class SavedCarts extends Component {
   constructor(props) {
@@ -19,6 +20,12 @@ class SavedCarts extends Component {
   hideModal = () => {
     this.setState({ show: false });
   };
+
+  getTotal(cart) {
+    let total = 0;
+    Object.values(cart[1]).map(item => (total += item.price * item.quantity));
+    return total;
+  }
 
   render() {
     let date = new Date();
@@ -46,18 +53,25 @@ class SavedCarts extends Component {
                       }
                     >
                       <Link to="/cart">
-                        {date.toISOString().substring(0, 10)}
+                        {
+                          <div className="saved-cart-date-total">
+                            <div className="saved-cart-date">
+                              {date.toISOString().substring(0, 10)}
+                            </div>
+                            <div className="saved-cart-total">
+                              ${this.getTotal(cart)}
+                            </div>
+                          </div>
+                        }
                       </Link>
                     </div>
-                    <div className="saved-cart-x">
-                      <div className="delete-btn">
-                        <CartButton
-                          button="remove"
-                          cart={cart[1]}
-                          cartId={cart[0]}
-                          removeCart={this.props.removeCart}
-                        />
-                      </div>
+                    <div className="delete-btn">
+                      <CartButton
+                        button="remove"
+                        cart={cart[1]}
+                        cartId={cart[0]}
+                        removeCart={this.props.removeCart}
+                      />
                     </div>
                   </div>
                   <div className="items-and-button">
@@ -91,8 +105,8 @@ const Modal = ({ handleClose, show, children }) => {
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
-        <button className="saved-cart-delete" onClick={handleClose}>
-          X
+        <button className="saved-cart-close" onClick={handleClose}>
+          <div className="saved-cart-x">x</div>
         </button>
         {children}
       </section>

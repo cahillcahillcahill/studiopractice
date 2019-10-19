@@ -1,0 +1,50 @@
+.login-form .form-group input {
+    font-size: 14pt;
+    width: 30%;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 2px solid rgb(255, 13, 146);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    color: rgb(19, 18, 18);
+  }
+  
+  .login-form input[type="submit"] {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    margin-top: 3%;
+    margin-left: 23%;
+    cursor: pointer;
+    -webkit-transition: 0.6s;
+    transition: 0.6s;
+    border-radius: 3px;
+  }
+  
+  .login-form input[type="submit"]:hover {
+    background-color: rgb(245, 245, 245);
+    -webkit-transition: 0.1s;
+    transition: 0.1s;
+  }
+  
+  .login-form .form-group input:focus {
+    border-bottom: 2px solid rgb(19, 18, 18);
+  }
+  
+  .login-form label {
+    color: rgb(19, 18, 18);
+    display: block;
+    text-align: justify;
+    margin-left: 30%;
+    margin-bottom: 1%;
+    margin-top: 2%;
+  }
+
+  .email-invalid {
+    color: rgb(19, 18, 18);
+    padding-top: 10px;
+  }

@@ -4,17 +4,19 @@ import { Link } from "react-router-dom";
 import SavedCarts from "./SavedCarts";
 import CartIndicator from "./CartIndicator";
 import Logo from "./Logo";
+import HeaderMenu from "./HeaderMenu";
+import "./Header.css";
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
       login: props.login,
-      HeaderLogin: props.login.isLoginSuccess,
+      headerLogin: props.login.isLoginSuccess,
       Email: props.login.loginEmail,
       cart: props.cart,
       carts: props.carts,
-      prevScrollpos: window.pageYOffset,
+      prevScrollPos: window.pageYOffset,
       visible: true
     };
   }
@@ -27,28 +29,28 @@ class Header extends Component {
   }
 
   handleScroll = () => {
-    const { prevScrollpos } = this.state;
-
+    const { prevScrollPos } = this.state;
     const currentScrollPos = window.pageYOffset;
-    const visible = prevScrollpos > currentScrollPos;
+    const visible = prevScrollPos > currentScrollPos;
 
     this.setState({
-      prevScrollpos: currentScrollPos,
+      prevScrollPos: currentScrollPos,
       visible
     });
   };
 
   render() {
     return (
-      <div className={this.state.visible ? "Header" : "Header--hidden"}>
-        <Logo/>
+      <div className={this.state.visible ? "header" : "header--hidden"}>
+        <HeaderMenu ShowMenu={this.ShowMenu} />
+        <Logo />
         <Routes
-          HeaderLogin={this.props.HeaderLogin}
+          headerLogin={this.props.headerLogin}
           logout={this.props.logout}
           cart={this.props.cart}
         />
-        {this.props.HeaderLogin ? (
-          <div className="HeaderLogin">
+        {this.props.headerLogin ? (
+          <div className="header-login">
             <div className="login-greeting">
               Hello,{" "}
               <span className="login-greeting-email">{this.props.Email}</span>!
@@ -60,7 +62,7 @@ class Header extends Component {
             )}
           </div>
         ) : (
-          ""
+          <div className="header-login"></div>
         )}
       </div>
     );
@@ -80,7 +82,7 @@ function Routes(props) {
         <Link to="/products">products</Link>
       </div>
       <div className="RouteLink">
-        {!props.HeaderLogin ? (
+        {!props.headerLogin ? (
           <Link to="/login">login</Link>
         ) : (
           <div className="header-logout" onClick={props.logout}>
@@ -89,7 +91,7 @@ function Routes(props) {
         )}
       </div>
       <div className="RouteLink">
-        <CartIndicator className="cart-indicator" cart={props.cart} />
+        <CartIndicator cart={props.cart} />
       </div>
     </div>
   );
@@ -98,7 +100,7 @@ function Routes(props) {
 function mapStateToProps(state) {
   return {
     login: state.login,
-    HeaderLogin: state.login.isLoginSuccess,
+    headerLogin: state.login.isLoginSuccess,
     Email: state.login.loginEmail,
     carts: state.carts,
     cart: state.cart,

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { login } from "../reducers/LoginReducer";
 import { createBrowserHistory } from "history";
+import './LoginForm.css';
 
 class LoginForm extends Component {
   constructor(props) {

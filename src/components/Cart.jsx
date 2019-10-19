@@ -1,6 +1,7 @@
 import React from "react";
 import ProductButton from "./ProductButton";
 import { connect } from "react-redux";
+import './Cart.css';
 
 function Cart(props) {
   props.cart.sort(function(a, b) {
@@ -14,7 +15,7 @@ function Cart(props) {
     );
     return total;
   };
-
+  
   return (
     <div>
       {props.cart[0] && (
