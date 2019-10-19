@@ -1,42 +1,75 @@
 .logo-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    justify-items: center;
-    align-content: center;
-    justify-content: center;
-    width: 300px;
-  }
-  
-  .logo-img {
-    padding:10px 15px 5px 15px;
-    font-family: "Gothic A1", sans-serif;
-    font-style: italic;
-    color: rgb(19, 18, 18);
-    background-color: rgb(255, 255, 255);
-    border-radius: 1px;
-    font-size: 24pt;
-    -webkit-transition: 0.6s;
-    transition: 0.6s;
-  }
-  
-  .logo-img:hover {
-    cursor: pointer;
-    -webkit-transition: 0.6s;
-    transition: 0.6s;
-  }
-  
-  .logo-img:hover svg {
-    color: rgb(255, 255, 255);
-    background-color: rgb(19, 18, 18);
-    border-radius: 12px;
-    -webkit-transition: 0.6s;
-    transition: 0.6s;
-  }
-  
-  .logo-img svg {
-    border-radius: 12px;
-    -webkit-transition: 2s;
-    transition: 2s;
-    margin-left: 2px;
-  }  
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  width: 300px;
+}
+
+.logo-img {
+  padding: 10px 15px 5px 15px;
+  font-family: "Gothic A1", sans-serif;
+  font-style: italic;
+  color: rgb(19, 18, 18);
+  background-color: rgb(255, 255, 255);
+  border-radius: 1px;
+  font-size: 24pt;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.logo-img:hover {
+  cursor: pointer;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.logo-img:hover svg {
+  color: rgb(255, 255, 255);
+  background-color: rgb(19, 18, 18);
+  border-radius: 12px;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+
+  -webkit-animation-name: logocolors; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 10s; /* Safari 4.0 - 8.0 */
+  animation-name: logocolors;
+  animation-duration: 10s;
+}
+
+@-webkit-keyframes logocolors {
+  0%  {background-color: rgb(255, 255, 255);}
+  10% {background-color: rgb(255, 51, 51);}
+  20% {background-color: rgb(0, 255, 221);}
+  30% {background-color: rgb(0, 183, 255);}
+  40% {background-color: rgb(22, 18, 247);}
+  50% {background-color: rgb(0, 19, 189);}
+  60% {background-color: rgb(255, 0, 149);}
+  70% {background-color: rgb(255, 176, 209);}
+  80% {background-color: rgb(255, 0, 0);}
+  90% {background-color: rgb(209, 31, 0);}
+  100% {background-color: rgb(189, 0, 63);}
+}
+
+@keyframes logocolors {
+  0%  {background-color: rgb(255, 255, 255);}
+  10% {background-color: rgb(255, 51, 51);}
+  20% {background-color: rgb(0, 255, 221);}
+  30% {background-color: rgb(0, 183, 255);}
+  40% {background-color: rgb(22, 18, 247);}
+  50% {background-color: rgb(0, 19, 189);}
+  60% {background-color: rgb(255, 0, 149);}
+  70% {background-color: rgb(255, 176, 209);}
+  80% {background-color: rgb(255, 0, 0);}
+  90% {background-color: rgb(209, 31, 0);}
+  100% {background-color: rgb(189, 0, 63);}
+}
+
+.logo-img svg {
+  border-radius: 12px;
+  -webkit-transition: 2s;
+  transition: 2s;
+  margin-left: 2px;
+}
