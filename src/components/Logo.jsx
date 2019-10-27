@@ -6,7 +6,7 @@ import "./Logo.css";
 
 export default function Logo(props) {
   return (
-    <div className="logo-container" onClick={() => console.log("clicked big")}>
+    <div className="logo-container">
       <Link to="/">
         {" "}
         <LogoImg />

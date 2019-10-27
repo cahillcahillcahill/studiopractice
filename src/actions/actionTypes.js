@@ -1,0 +1,8 @@
+export const ADD_CART = "ADD_CART";
+export const SET_CART = "SET_CART";
+export const REMOVE_CART = "REMOVE_CART";
+export const ADD_PRODUCT = "ADD_PRODUCT";
+export const CREATE_CART_SUCCESS = "CREATE_CART_SUCCESS";
+export const UPDATE_CART_SUCCESS = "UPDATE_CART_SUCCESS";
+export const BEGIN_API_CALL = "BEGIN_API_CALL";
+export const API_CALL_ERROR = "API_CALL_ERROR";

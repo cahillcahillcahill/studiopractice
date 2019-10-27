@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import CartButton from "./CartButton";
 import "./SavedCarts.css";
+import * as CartsActions from "../actions/CartsActions";
+import * as CartActions from "../actions/CartActions";
+import { bindActionCreators } from "redux";
 
 class SavedCarts extends Component {
   constructor(props) {
@@ -23,8 +26,12 @@ class SavedCarts extends Component {
 
   getTotal(cart) {
     let total = 0;
-    Object.values(cart[1]).map(item => (total += item.price * item.quantity));
+    Object.values(cart).map(item => (total += item.price * item.quantity));
     return total;
+  }
+
+  getKeyByValue(object, value) {
+    return Object.keys(object).find(key => object[key] === value);
   }
 
   render() {
@@ -37,7 +44,7 @@ class SavedCarts extends Component {
       <div className="saved-carts">
         <Modal show={this.state.show} handleClose={this.hideModal}>
           {Object.keys(this.props.carts)[0]
-            ? Object.entries(this.props.carts).map(cart => (
+            ? Object.values(this.props.carts).map(cart => (
                 <div className="saved-cart">
                   <div className="header-and-x">
                     <div
@@ -45,10 +52,7 @@ class SavedCarts extends Component {
                       onClick={() =>
                         sleep(100).then(() => {
                           this.hideModal();
-                          this.props.setCart({
-                            cart: cart,
-                            carts: this.props.carts
-                          });
+                          this.props.actions.Cart.setCart(cart);
                         })
                       }
                     >
@@ -68,15 +72,14 @@ class SavedCarts extends Component {
                     <div className="delete-btn">
                       <CartButton
                         button="remove"
-                        cart={cart[1]}
-                        cartId={cart[0]}
-                        removeCart={this.props.removeCart}
+                        cart={cart}
+                        removeCart={()=>this.props.actions.Carts.removeCart(cart, this.getKeyByValue(this.props.carts, cart))}
                       />
                     </div>
                   </div>
                   <div className="items-and-button">
                     <div>
-                      {Object.values(cart[1]).map(item => (
+                      {Object.values(cart).map(item => (
                         <div className="saved-cart-item">
                           {item.name + " "}({item.quantity})
                         </div>
@@ -122,12 +125,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    setCart: payload => {
-      dispatch({ type: "SET_CART", payload: payload });
-    },
-
-    removeCart: cart => {
-      dispatch({ type: "REMOVE_CART", payload: cart });
+    actions: {
+      Carts: bindActionCreators(CartsActions, dispatch),
+      Cart: bindActionCreators(CartActions, dispatch)
     }
   };
 }

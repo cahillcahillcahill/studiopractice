@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import './Cart.css';
 
 function Cart(props) {
+  //add to willmount
   props.cart.sort(function(a, b) {
     return a.id - b.id;
   });

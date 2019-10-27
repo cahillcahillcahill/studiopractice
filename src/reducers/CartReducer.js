@@ -1,3 +1,5 @@
+import * as types from "../actions/actionTypes";
+
 const cartWithoutItem = (cart, item) =>
   cart.filter(cartItem => cartItem.id !== item.id);
 
@@ -27,14 +29,6 @@ const removeAllFromCart = (cart, item) => {
   return [...cartWithoutItem(cart, item)];
 };
 
-const setCart = (state, payload) => {
-  const cartID = payload.cart[0];
-  const cart = payload.cart[1];
-  const carts = payload.carts;
-
-  return Object.keys(carts).includes(cartID) ? Object.values(cart) : state;
-};
-
 const cartReducer = (state = [], action) => {
   switch (action.type) {
     case "ADD_PRODUCT":
@@ -46,8 +40,8 @@ const cartReducer = (state = [], action) => {
     case "REMOVE_ALL":
       return removeAllFromCart(state, action.payload);
 
-    case "SET_CART":
-      return setCart(state, action.payload);
+    case types.SET_CART:
+      return action.cart;
 
     default:
       return state;

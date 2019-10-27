@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 import Cart from "./Cart";
 import CartButton from "./CartButton";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import * as CartsActions from "../actions/CartsActions";
+import { bindActionCreators } from "redux";
 
 class CartList extends Component {
   constructor(props) {
@@ -29,7 +32,7 @@ class CartList extends Component {
             <CartButton
               button="add"
               cart={this.props.cart}
-              addCart={this.props.addCart}
+              addCart={()=>this.props.actions.addCart(this.props.cart)}
             />
           ) : (
             ""
@@ -43,6 +46,12 @@ class CartList extends Component {
   }
 }
 
+CartList.propTypes = {
+  carts: PropTypes.array.isRequired,
+  cart: PropTypes.object.isRequired,
+  loggedIn: PropTypes.isRequired
+};
+
 function mapStateToProps(state) {
   return {
     carts: state.carts,
@@ -53,9 +62,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addCart: cart => {
-      dispatch({ type: "ADD_CART", payload: cart });
-    }
+    actions: bindActionCreators(CartsActions, dispatch)
   };
 }
 
