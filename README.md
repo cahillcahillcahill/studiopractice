@@ -1,3 +1,12 @@
+npm start
+
+email: admin@example.com
+password: admin
+
+thanks!
+https://www.linkedin.com/in/josh-cahill/
+cahillcahillcahill@gmail.com
+-------------------------------
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
